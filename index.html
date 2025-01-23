@@ -1,4 +1,11 @@
+<!-- CSS - STYLE ELEMENTS -->
 <style>
+  @keyframes blink {
+    0% {opacity: 1;} 
+    50% {opacity: 0;}
+    100% {opacity: 1;}
+  }
+  
   body {
     background-color: black;
     
@@ -25,6 +32,10 @@
     
   }
   
+  #console pre{
+    
+  }
+  
   #input-section {
     height: 25vh;
     width: 98vw;
@@ -36,12 +47,44 @@
     
   }
   
-  input {
+  #input-box {
+    margin-left: 10px;
+    
+    color: white;
+    font-size: 15px;
+    font-stretch: expanded;
+    font-family: "Courier new", monospace;
+    
+    background-color: black;
+    border: 1px solid #6e6e6e; 
+    
+    position: relative;
+    top: 64%;
     
   }
   
+  input[type="text"]:hover {
+    border: 1px solid white;
+  }
+  
+  ::placeholder {
+    color: #6e6e6e;
+  }
+ 
   button {
+    color: #6e6e6e;
     
+    border: 1px solid #6e6e6e;
+    background-color: black;
+    
+    position: relative;
+    top: 64%;
+    
+  }
+  
+  button:hover {
+    border: 1px solid white;
+    color: white;
   }
   
   h1 {
@@ -54,10 +97,17 @@
   
   p {
     margin: 10px 10px 10px 10px;
+/*     animation: blink 1s infinite; */
   }
   
 </style>
 
+<!-- JAVASCRIPT - INTERACTABILITY -->
+<script>
+  
+</script>
+
+<!-- HTML - SITE-->
 <body>
   <div>
     
@@ -77,6 +127,12 @@
       <p>
         Hello. This is a text test 2.
       </p> 
+      
+      <input id="input-box" type="text" placeholder="Enter command...">
+      
+      <button>
+        SUBMIT
+      </button>
     </section>
     
   </div>
