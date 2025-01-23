@@ -1,5 +1,47 @@
+<!-- Style Tag == CSS Styling -->
+<style>
+  h1 {
+    /*   Defaulted to h1 as block  */
+    display: block; /* can use "inline-block" to stack objects next to each other*/
+  } 
+  
+/*  ID Selector Example - Can only use once */
+  #main-title {
+    background-color: #DCFCFE;
+    
+    /*   Padding is inside the box/element   */
+    padding: 30px; /*Adds padding all around of same width - can do padding specific to top, left, bottom, right with : padding: 20px 40px 50px 60px */
+    
+    /*   Margin is outside/around the box/element   */
+    margin: 20px auto; /* Can also add custom metrics like padding, auto centers - must have set width */
+    
+    border: 5px solid #01DCFE;
+    text-align: center;
+    
+    overflow: scroll; /* Will add a scroll bar if text/content goes outside of the element */
+  }
+  
+/*  Class Selector Example - Can be reused  */
+  .header {
+    color: blueviolet;
+  }
+  
+  p {
+    font-family: amharic-abegede;
+  }
+  
+  a {
+    color: green;
+    font-size: large;
+    
+/*   Defaulted to a as inline  */
+    display: inline;
+  }
+</style>
+
+<!-- HTML Code Starts Here -->
 <div>
-  <h1>
+  <h1 id="main-title">
     Dear Internet,
   </h1>
   <p>
@@ -9,9 +51,10 @@
 
 <div>
   <p>
-    It is with a mix of bemusement and solemnity that we, your users, must formally serve you with this <a href="https://www.investopedia.com/terms/n/notice-of-termination.asp" target="blank_">termination notice</a>. You, the omnipresent web of networks that <a href="https://www.usg.edu/galileo/skills/unit07/internet07_02.phtml#:~:text=The%20Internet%20started%20in%20the,government%20researchers%20to%20share%20information." target="blank_">once promised freedom, connection, and the democratization of information,</a> have sadly spiraled into something akin to a chaotic digital <a href="https://en.wikipedia.org/wiki/Moshing" target="blank_">mosh pit</a>—all flailing limbs and questionable choices. While this decision was not made lightly, the following reasons compel us to part ways.<a href="" target="blank_"></a>
+    It is with a mix of bemusement and solemnity that we, your users, must formally serve you with this <a href="https://www.investopedia.com/terms/n/notice-of-termination.asp" target="blank_">termination notice</a>. You, the omnipresent web of networks that <a href="https://www.usg.edu/galileo/skills/unit07/internet07_02.phtml#:~:text=The%20Internet%20started%20in%20the,government%20researchers%20to%20share%20information." target="blank_">once promised freedom, connection, and the democratization of information,</a> have sadly spiraled into something akin to a chaotic digital <a href="https://en.wikipedia.org/wiki/Moshing" target="blank_">mosh pit</a>—all flailing limbs and questionable choices. While this decision was not made lightly, the following reasons compel us to part ways.
+<!--     <a href="" target="blank_"></a> -->
   </p>
-  <p>
+  <p class="header">
     <b>1. Your Free Speech Has Gone Rogue</b>
   </p>
   <p>
@@ -21,7 +64,7 @@
     The spread of misinformation has gone unchecked for too long, and while <a href="https://www.reuters.com/technology/facebook-x-youtube-do-more-against-online-hate-speech-eu-says-2025-01-20/" target="blank_">you’ve made half-hearted attempts to correct this</a>—slapping <a href="https://www.prosocialdesign.org/library/label-misleading-content-add-links-to-reliable-related-content" target="blank_">“This may be false” labels</a> on posts like they’re parking violations—it’s too little, too late. <a href="https://misinforeview.hks.harvard.edu/article/the-consequences-of-misinformation-concern-on-media-consumption/" target="blank_">Harmful rhetoric festers, communities suffer</a>, and the dream of digital enlightenment has been eclipsed by the nightmare of internet trolls shouting into an endless void. Enough is enough.
   </p>
   
-  <p>
+  <p class="header">
      <b>2. You’ve Become a Circus of Distraction</b>
   </p>
   <p>
@@ -31,7 +74,7 @@
     You’ve <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7766706/" target="blank_">turned focus into a relic of the past and attention spans into something that can only be measured in nanoseconds</a>. Your <a href="https://scopeblog.stanford.edu/2021/10/29/addictive-potential-of-social-media-explained/" target="blank_">dopamine-inducing diversions</a> have rendered <a href="https://chrisbailey.com/how-the-internet-destroys-your-productivity/" target="blank_">productivity an endangered species</a>. We wanted knowledge, and you gave us endless <a href="https://cheezburger.com/8932101/23-raccoon-memes-for-anyone-who-just-loves-those-little-trash-pandas" target="blank_">memes of raccoons</a> stealing donuts. For this, we must regretfully <a href="https://www.howtogeek.com/702931/what-do-swipe-left-and-swipe-right-mean/" target="blank_">swipe left</a>.
   </p>
   
-  <p>
+  <p class=header>
      <b>3. ChatGPT and AI Are Ready to Take It From Here</b>
   </p>
   <p>
