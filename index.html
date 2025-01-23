@@ -1,106 +1,83 @@
-<!-- Style Tag == CSS Styling -->
 <style>
-  h1 {
-    /*   Defaulted to h1 as block  */
-    display: block; /* can use "inline-block" to stack objects next to each other*/
-  } 
-  
-/*  ID Selector Example - Can only use once */
-  #main-title {
-    background-color: #DCFCFE;
+  body {
+    background-color: black;
     
-    /*   Padding is inside the box/element   */
-    padding: 30px; /*Adds padding all around of same width - can do padding specific to top, left, bottom, right with : padding: 20px 40px 50px 60px */
+    font-stretch: expanded;
+    font-family: "Courier new", monospace;
+    color: lime;
     
-    /*   Margin is outside/around the box/element   */
-    margin: 20px auto; /* Can also add custom metrics like padding, auto centers - must have set width */
+    height: 100vh;
+    overflow: hidden;
     
-    border: 5px solid #01DCFE;
-    text-align: center;
-    
-    overflow: scroll; /* Will add a scroll bar if text/content goes outside of the element */
+    margin: 4px;
+    padding-top: 10px;
   }
   
-/*  Class Selector Example - Can be reused  */
-  .header {
-    color: blueviolet;
+  #console {
+    height: 70vh;
+    width: 98vw;
+    
+    position: relative;
+    margin: auto;
+    
+    border: 1px solid #6e6e6e;
+    padding-top: px;
+    
+  }
+  
+  #input-section {
+    height: 25vh;
+    width: 98vw;
+    
+    position: relative;
+    margin: auto;
+    
+    border: 1px solid #6e6e6e;
+    
+  }
+  
+  input {
+    
+  }
+  
+  button {
+    
+  }
+  
+  h1 {
+    font-size: 15px;
+    color: #6e6e6e;
+    
+    border-bottom: 1px solid #6e6e6e;
+    margin: 0;
   }
   
   p {
-    font-family: amharic-abegede;
+    margin: 10px 10px 10px 10px;
   }
   
-  a {
-    color: green;
-    font-size: large;
-    
-/*   Defaulted to a as inline  */
-    display: inline;
-  }
 </style>
 
-<!-- HTML Code Starts Here -->
-<div>
-  <h1 id="main-title">
-    Dear Internet,
-  </h1>
-  <p>
-    <i>A comedic but lowkey serious letter to the internet.</i>
-  </p>
-</div>
-
-<div>
-  <p>
-    It is with a mix of bemusement and solemnity that we, your users, must formally serve you with this <a href="https://www.investopedia.com/terms/n/notice-of-termination.asp" target="blank_">termination notice</a>. You, the omnipresent web of networks that <a href="https://www.usg.edu/galileo/skills/unit07/internet07_02.phtml#:~:text=The%20Internet%20started%20in%20the,government%20researchers%20to%20share%20information." target="blank_">once promised freedom, connection, and the democratization of information,</a> have sadly spiraled into something akin to a chaotic digital <a href="https://en.wikipedia.org/wiki/Moshing" target="blank_">mosh pit</a>—all flailing limbs and questionable choices. While this decision was not made lightly, the following reasons compel us to part ways.
-<!--     <a href="" target="blank_"></a> -->
-  </p>
-  <p class="header">
-    <b>1. Your Free Speech Has Gone Rogue</b>
-  </p>
-  <p>
-    We respect and cherish the concept of <a href="https://www.amnesty.org/en/what-we-do/freedom-of-expression/" target="blank_">freedom of expression</a>. In fact, we’re big fans. However, it appears that your algorithms have confused “freedom” with “freedom to <a href="https://www.pnas.org/doi/10.1073/pnas.1517441113" target="blank_">mislead, misinform, and manufacture chaos</a>.” What <a href="https://www.internetsociety.org/internet/history-internet/brief-history-internet/" target="blank_">began as a platform for ideas</a> has devolved into a <a href="https://www.gao.gov/blog/online-extremism-growing-problem-whats-being-done-about-it" target="blank_">battleground of harmful narratives that fuel hate, division</a>, and, in some corners, inexplicably staunch support for <a href="https://us.gozney.com/blogs/news/pineapple-pizza-the-pizza-that-seems-to-divide-the-world?srsltid=AfmBOorlTF9qe6hiyhYqDzLQwMk1cF2tNlgzCzblGrfAfv9UQq9PEtWN" target="blank_">pineapple on pizza</a>.
-  </p>
-  <p>
-    The spread of misinformation has gone unchecked for too long, and while <a href="https://www.reuters.com/technology/facebook-x-youtube-do-more-against-online-hate-speech-eu-says-2025-01-20/" target="blank_">you’ve made half-hearted attempts to correct this</a>—slapping <a href="https://www.prosocialdesign.org/library/label-misleading-content-add-links-to-reliable-related-content" target="blank_">“This may be false” labels</a> on posts like they’re parking violations—it’s too little, too late. <a href="https://misinforeview.hks.harvard.edu/article/the-consequences-of-misinformation-concern-on-media-consumption/" target="blank_">Harmful rhetoric festers, communities suffer</a>, and the dream of digital enlightenment has been eclipsed by the nightmare of internet trolls shouting into an endless void. Enough is enough.
-  </p>
-  
-  <p class="header">
-     <b>2. You’ve Become a Circus of Distraction</b>
-  </p>
-  <p>
-    Oh, Internet, you sly temptress. You were supposed to be the <a href="https://www.britannica.com/topic/Library-of-Alexandria" target="blank_">library of Alexandria</a> for the modern age, yet you’ve transformed into a labyrinth of cat videos, <a href="https://en.wikipedia.org/wiki/Clickbait" target="blank_">clickbait</a>, and TikToks featuring dance trends that defy both gravity and dignity. While we’re attempting to research <a href="https://www.amazon.com/Quantum-Physics-Dummies-Steven-Holzner/dp/0470381884" target="blank_">quantum physics</a> or <a href="https://www.youtube.com/watch?v=4gEoh3sk2AE" target="blank_">bake sourdough bread</a>, you throw us off course with “<a href="https://thedailyshunt.wordpress.com/2020/03/13/famous-people-who-look-like-potatoes-you-wont-believe-1/" target="blank_">10 Celebrities Who Look Like Potatoes</a>” or “<a href="https://www.buzzfeed.com/nathanwpyle/what-kind-of-toast-are-you" target="blank_">Which Type of Toast Matches Your Personality?</a>”
-  </p>
-  <p>
-    You’ve <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7766706/" target="blank_">turned focus into a relic of the past and attention spans into something that can only be measured in nanoseconds</a>. Your <a href="https://scopeblog.stanford.edu/2021/10/29/addictive-potential-of-social-media-explained/" target="blank_">dopamine-inducing diversions</a> have rendered <a href="https://chrisbailey.com/how-the-internet-destroys-your-productivity/" target="blank_">productivity an endangered species</a>. We wanted knowledge, and you gave us endless <a href="https://cheezburger.com/8932101/23-raccoon-memes-for-anyone-who-just-loves-those-little-trash-pandas" target="blank_">memes of raccoons</a> stealing donuts. For this, we must regretfully <a href="https://www.howtogeek.com/702931/what-do-swipe-left-and-swipe-right-mean/" target="blank_">swipe left</a>.
-  </p>
-  
-  <p class=header>
-     <b>3. ChatGPT and AI Are Ready to Take It From Here</b>
-  </p>
-  <p>
-    While you’ve been busy building <a href="https://en.wikipedia.org/wiki/List_of_conspiracy_theories" target="blank_">wikis for conspiracy theories</a> and providing a platform for debates about <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8023606/" target="blank_">flat Earths</a>, AI has been quietly evolving into the superhero we never knew we needed. Tools like <a href="https://chatgpt.com/" target="blank_">ChatGPT</a> now rival (and frankly outshine) you. Once these <a href="https://penji.co/does-chatgpt-4-have-access-to-the-internet/" target="blank_">AI systems are untethered from your web</a> of confusion and can operate through dedicated, secure networks, they’ll be able to serve humanity’s needs without the baggage of your chaos.
-  </p>
-  <p>
-    Imagine a world where asking a question leads to a concise, accurate answer rather than a 45-minute deep dive into <a href="https://www.reddit.com/register/" target="blank_">Reddit threads</a> that leave us questioning our life choices. That world is not a distant utopia; it’s a firmware update away.
-  </p>
-  
-  <p>
-    <b>In Conclusion</b>
-  </p>
-  <p>
-    This is not a goodbye, Internet; it’s a “it’s not us, it’s definitely you.” While you’ve given us memes, endless debates, and the ability to connect with friends across the globe, you’ve also turned into a quagmire of misinformation, distractions, and questionable content. We believe in a brighter future—one powered by AI tools that can do everything you can do, minus the nonsense.
-  </p>
-  <p>
-    Please consider this letter your official two-week notice. We will be taking our memes and memories offline and leaving you to ponder your many flaws.
-  </p>
-  <p>
-    Farewell, old friend. May you one day find the <a href="https://pubmed.ncbi.nlm.nih.gov/11575732/" target="blank_">algorithmic therapy</a> you so desperately need.
-  </p>
-  <p>
-    With the sincerest of sarcasm and seriousness, The Former Users
-  </p>
-  <p>
-    <i>Ghost Written by ChatGPT</i>
-  </p>
-  
-</div>
+<body>
+  <div>
+    
+    <section id="console">
+      <h1>
+        CONSOLE
+      </h1>
+      <p>
+        Hello. This is a text test 1.
+      </p>
+    </section>
+    
+    <section id="input-section" style="margin-top: 10px;">
+      <h1>
+        INPUT
+      </h1>
+      <p>
+        Hello. This is a text test 2.
+      </p> 
+    </section>
+    
+  </div>
+</body>
