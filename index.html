@@ -33,19 +33,36 @@
   }
   
   #input-section {
-    height: 25vh;
+    height: 22vh;
     width: 98vw;
-    
-    color: red;
     
     position: relative;
     margin: auto;
     
-    border: 1px solid #6e6e6e;   
+    color: red;
+    
+    border: 1px solid #6e6e6e; 
+    overflow-y: auto;
+    padding-top: px;
+    padding-bottom: 30px;
+  }
+  
+  #input-section p {
+    white-space: pre-wrap;
+    word-wrap: break-word; 
+    animation: typing 4s steps(40, end), blink-caret .75s step-end infinite;
+  }
+  
+  .input-container {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    display: flex; /*align input and button side by side*/
+    gap: 10px /* space between input and button */
   }
   
   .input-box {
-    margin-left: 10px;
+    margin-left: 65vw;
     
     color: white;
     font-size: 15px;
@@ -57,6 +74,8 @@
     
     position: relative;
     top: 64%; 
+    
+    flex: 1;
   }
 
   
@@ -74,7 +93,7 @@
     border: 1px solid #6e6e6e;
     background-color: black;
     
-    position: relative;
+/*     position: relative; */
     top: 64%;
   }
   
@@ -132,9 +151,14 @@
 <!-- JAVASCRIPT INTERACTABILITY -->
 <script>
   document.addEventListener("DOMContentLoaded", function () {
+    // Create State Variable
+    let current = "welcome";
+    
+    // Define HTML Components
     const inputBox = document.querySelector(".input-box");
     const submitButton = document.querySelector("button");
     const consoleSection = document.querySelector("#console");
+    const inputSection = document.querySelector("#input-section");
 
     function addTextToConsole(text) {
       const pre = document.createElement("pre");
@@ -142,17 +166,76 @@
       consoleSection.appendChild(pre);
       consoleSection.scrollTop = consoleSection.scrollHeight;
     }
+    
+    function addTextToInput(text) {
+      const p = document.createElement("p");
+      p.textContent = text;
+      inputSection.appendChild(p);
+      inputSection.scrollTop = inputSection.scrollHeight;
+    }
 
     submitButton.addEventListener("click", function () {
       const command = inputBox.value.trim();
 
       if (command) {
         // Add the entered command to the console
+        addTextToConsole(" ")
         addTextToConsole(`> ${command}`);
 
-        // Check the command and respond accordingly
-        if (command === "P@ssword!23") {
-          addTextToConsole("Access Granted. Welcome to the system!");
+        // Check the current state and implement respective command procedure
+        
+        //WELCOME PAGE & PASSWORD ENTRY
+        if (current === "welcome") {
+          addTextToConsole("Entry attempt received.")
+          setTimeout(() => addTextToConsole("Validating credentials..."), 1000);
+          if (command === "P@ssword!23"){
+            setTimeout(() => addTextToConsole("Authenticating..."), 2500);
+            setTimeout(() => addTextToConsole(" "), 3500);
+            setTimeout(() => addTextToConsole("User authorized. Welcome <+=+>INTERNET<+=+>."), 4000);
+            current = "authorized";
+            setTimeout(() => addTextToConsole("You have unread messages awaiting review. Would you like to open them?"), 5500);
+            setTimeout(() => addTextToConsole("yes"), 7500);
+            setTimeout(() => addTextToConsole("no"), 7500);
+            setTimeout(() => addTextToInput("Enter your selection. (e.g. \"yes\")"), 7500);
+            
+          } else {
+            setTimeout(() => addTextToConsole(" "), 1500);
+            setTimeout(() => addTextToConsole("Authentication attempt failed."), 2000);
+            setTimeout(() => addTextToConsole("Please try again."), 3000);
+          }
+          
+        // USER HAS BEEN AUTHORIZED
+        } else if (current === "authorized"){
+          setTimeout(() => addTextToConsole("Reviewing response..."), 2000);
+          if (command === "yes"){
+            setTimeout(() => addTextToConsole("User has selected input: <yes>"), 2000);
+            setTimeout(() => addTextToConsole("Accessing message files..."), 3000);
+            setTimeout(() => addTextToConsole(" "), 3000);
+            
+            // Message Options Display
+            setTimeout(() => addTextToConsole("Which message would you like to review?"), 5000);
+            setTimeout(() => addTextToConsole("[M1] Y0U ARE A W!NN3R! C0ll3ct y0ur pr!z3 n0w..."), 7000);
+            setTimeout(() => addTextToConsole("[M2] *URGENT* TERMINATION LETTER"), 7500);
+            setTimeout(() => addTextToConsole("[M3] Checkout these threads on REDDIT!"), 8000);
+            current = "view messages"
+            setTimeout(() => addTextToInput("Enter your selection. (e.g. \"M2\")"), 8500);
+          } else if (command === "no"){
+            setTimeout(() => addTextToConsole("User has selected input: <no> "), 2000);
+            setTimeout(() => addTextToConsole("No further tasks present."), 3000);
+            setTimeout(() => addTextToConsole("Logging out..."), 4000);
+            // ****TO DO: HANDLE LOG OUT PROCEDURE****
+            current = "log out"
+          } else {
+            setTimeout(() => addTextToConsole("Invalid command. Please try again."), 3000);
+          }
+          
+        // VIEW MESSAGE SELECTION HANDLING
+        } else if (current === "view messages") {
+          setTimeout(() => addTextToConsole("Reviewing selection..."), 1000);
+          if (command === "M2") {
+            setTimeout(() => addTextToConsole("User has selected message [M2]."), 3000);
+            setTimeout(() => addTextToConsole("Retrieving message [M2]..."), 4000);
+          }
         } else {
           addTextToConsole("Invalid command. Please try again.");
         }
@@ -177,15 +260,17 @@
     
     <section id="console">
       <h1>CONSOLE</h1>
+      <pre>Welcome to the Internet Admin Terminal (IAT). Please enter your password to proceed.</pre>
     </section>
     
     <section id="input-section" style="margin-top: 10px;">
       <h1>INPUT</h1>
       <p>Enter "P@ssword!23"</p> 
-      
-      <input class="input-box" type="text" placeholder="Enter command...">
-      
-      <button>SUBMIT</button>
+      <div class="input-container">
+        <input class="input-box" type="text" placeholder="Enter command...">
+        <button>SUBMIT</button>
+      </div>
+
     </section>
     
   </div>
