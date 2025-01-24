@@ -22,13 +22,14 @@
     margin: auto;
     
     border: 1px solid #6e6e6e;
+    overflow-y: auto;
     padding-top: px;
     
   }
   
   #console pre{
-/*      */
-    
+    white-space: pre-wrap;
+    word-wrap: break-word;   
   }
   
   #input-section {
@@ -40,8 +41,7 @@
     position: relative;
     margin: auto;
     
-    border: 1px solid #6e6e6e;
-    
+    border: 1px solid #6e6e6e;   
   }
   
   .input-box {
@@ -58,11 +58,7 @@
     position: relative;
     top: 64%; 
   }
-  
-  #input-box {
-/*      */
-    
-  }
+
   
   input[type="text"].input-box:hover {
     border: 1px solid white;
@@ -80,7 +76,6 @@
     
     position: relative;
     top: 64%;
-    
   }
   
   button:hover {
@@ -136,45 +131,44 @@
 
 <!-- JAVASCRIPT INTERACTABILITY -->
 <script>
-  const consoleD = document.getElementById('console');
-  const inputBox = document.getElementById('input-box');
-  const inputButton = document.getElementById('input-button');
-  
-  function appendToConsole(text) {
-    const pre = document.createElement('pre');
-    pre.textContent = text;
-    consoleD.appendChild(pre);
-    consoleD.scrollTop = consoleD.scrollHeight // Auto scroll to bottom of screen
-  }
-  
-  inputButton.addEventListener('click', () => {
-    const command = inputBox.value.trim();
-    if (command) {
-      appendToConsole(`> ${command}`);
-      handleCommand(command);
-      inputBox.value = ""; //Clear input
+  document.addEventListener("DOMContentLoaded", function () {
+    const inputBox = document.querySelector(".input-box");
+    const submitButton = document.querySelector("button");
+    const consoleSection = document.querySelector("#console");
+
+    function addTextToConsole(text) {
+      const pre = document.createElement("pre");
+      pre.textContent = text;
+      consoleSection.appendChild(pre);
+      consoleSection.scrollTop = consoleSection.scrollHeight;
     }
+
+    submitButton.addEventListener("click", function () {
+      const command = inputBox.value.trim();
+
+      if (command) {
+        // Add the entered command to the console
+        addTextToConsole(`> ${command}`);
+
+        // Check the command and respond accordingly
+        if (command === "P@ssword!23") {
+          addTextToConsole("Access Granted. Welcome to the system!");
+        } else {
+          addTextToConsole("Invalid command. Please try again.");
+        }
+
+        // Clear the input box
+        inputBox.value = "";
+      }
+    });
+
+    // Allow pressing Enter to submit
+    inputBox.addEventListener("keypress", function (e) {
+      if (e.key === "Enter") {
+        submitButton.click();
+      }
+    });
   });
-  
-  inputBox.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-      inputButton.click();
-    }
-  });
-  
-  function handleCommand(command) {
-    switch (command.toLowerCase()) {
-      case 'y':
-        appendToConsole('Server boot initiated...');
-        setTimeout(() => appendToConsole('Loading modules...'), 1000);
-        setTimeout(() => appendToConsole('Almost done...'), 3000);
-        setTimeout(() => appendToConsole('Content loaded. Please see prompt below to proceed'), 5000);
-        break;
-      default:
-        appendToConsole('unknown command');
-    }
-  }
-  
 </script>
 
 <!-- HTML SITE -->
@@ -182,32 +176,16 @@
   <div>
     
     <section id="console">
-      <h1>
-        CONSOLE
-      </h1>
-      <div class="typewriter">
-        <p>
-          Welcome Internet
-        </p>
-        <p>
-          We've been waiting for you
-        </p>
-      </div>
+      <h1>CONSOLE</h1>
     </section>
     
     <section id="input-section" style="margin-top: 10px;">
-      <h1>
-        INPUT
-      </h1>
-      <p>
-        Enter "P@ssword!23"
-      </p> 
+      <h1>INPUT</h1>
+      <p>Enter "P@ssword!23"</p> 
       
-      <input id="input-box" class="input-box" type="text" placeholder="Enter command...">
+      <input class="input-box" type="text" placeholder="Enter command...">
       
-      <button id="input-button">
-        SUBMIT
-      </button>
+      <button>SUBMIT</button>
     </section>
     
   </div>
