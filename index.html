@@ -1,11 +1,5 @@
 <!-- CSS STYLE ELEMENTS -->
 <style>
-  @keyframes blink {
-    0% {opacity: 1;} 
-    50% {opacity: 0;}
-    100% {opacity: 1;}
-  }
-  
   body {
     background-color: black;
     
@@ -39,6 +33,8 @@
   #input-section {
     height: 25vh;
     width: 98vw;
+    
+    color: red;
     
     position: relative;
     margin: auto;
@@ -97,8 +93,39 @@
   
   p {
     margin: 10px 10px 10px 10px;
+    width: fit-content;
 /*     animation: blink 1s infinite; */
   }
+  
+  .typewriter p {
+    display: inline-block;
+    overflow: hidden; /* hide content until animation */
+    border-right: .15em solid lime; /* cursor*/
+    white-space: nowrap; /*Stay on a single line*/
+/*     margin: 0 auto; adds scrolling effect of typing */
+    letter-spacing: .15em;
+    animation: typing 4s steps(40, end), blink-caret .75s step-end infinite;
+  }
+  
+  
+  @keyframes blink {
+    0% {opacity: 1;} 
+    50% {opacity: 0;}
+    100% {opacity: 1;}
+  }
+  
+  /* The typing effect */
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 90% }
+  }
+
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange; }
+}
+  
   
 </style>
 
@@ -115,9 +142,14 @@
       <h1>
         CONSOLE
       </h1>
-      <p>
-        Hello. This is a text test 1.
-      </p>
+      <div class="typewriter">
+        <p>
+          Welcome Internet
+        </p>
+        <p>
+          We've been waiting for you
+        </p>
+      </div>
     </section>
     
     <section id="input-section" style="margin-top: 10px;">
@@ -125,7 +157,7 @@
         INPUT
       </h1>
       <p>
-        Hello. This is a text test 2.
+        Enter "P@ssword!23"
       </p> 
       
       <input class="input-box" type="text" placeholder="Enter command...">
