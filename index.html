@@ -252,11 +252,12 @@
       }
     })
     
-    // document.addEventListener("click", (event) => {
-    //   if (!m2Menu.contains(event.target) && !m2Button.contains(event.target)) {
-    //     m2Menu.style.display = "none";
-    //   }
-    // })
+    // Exit popup logic
+    document.addEventListener("click", (event) => {
+      if (!m2Menu.contains(event.target) && !m2Button.contains(event.target) && current === "view messages") {
+        m2Menu.style.display = "none";
+      }
+    })
     
     // Text Component Functions (Console and Input)
     function addTextToConsole(text) {
@@ -294,6 +295,7 @@
             setTimeout(() => addTextToConsole(" "), 3500);
             setTimeout(() => addTextToConsole("User authorized. Welcome <+=+>INTERNET<+=+>."), 4000);
             current = "authorized";
+            setTimeout(() => addTextToConsole(" "), 5400);
             setTimeout(() => addTextToConsole("You have unread messages awaiting review. Would you like to open them?"), 5500);
             setTimeout(() => addTextToConsole("yes"), 7500);
             setTimeout(() => addTextToConsole("no"), 7500);
@@ -344,7 +346,11 @@
             setTimeout(() => addTextToConsole("Retrieving message [M2]..."), 4000);
             setTimeout(() => {
               m2Button.style.display = m2Button.style.display === "none" || !m2Button.style.display ? "block" : "none";
-            }, 6000)
+            }, 6000);
+            setTimeout(() => addTextToConsole(" "), 9000);
+            setTimeout(() => addTextToConsole("Thank you for playing Natalyah's \"Letter to the Internet.\""), 20000);
+            setTimeout(() => addTextToConsole("You can refresh to replay!"), 22000);
+            setTimeout(() => addTextToConsole("Have a great day :)"), 23000);
           } else if (command === "M3") {
             setTimeout(() => addTextToConsole("User has selected message [M1]."), 3000);
             setTimeout(() => addTextToConsole("Retrieving message [M3]..."), 4000);
@@ -443,6 +449,12 @@
     </p>
     <p>
       <i>Ghost Written by ChatGPT</i>
+    </p>
+    
+    <p>  </p>  
+
+    <p>
+      <i>Click anywhere outside this popup to continue</i>
     </p>
     </section>
     
