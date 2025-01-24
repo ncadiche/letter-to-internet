@@ -96,6 +96,8 @@
 /*     position: relative; */
     top: 64%;
   }
+
+  
   
   button:hover {
     border: 1px solid white;
@@ -124,6 +126,49 @@
 /*     margin: 0 auto; adds scrolling effect of typing */
     letter-spacing: .15em;
     animation: typing 4s steps(40, end), blink-caret .75s step-end infinite;
+  }
+  
+  .popup-menu {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 9999;
+    
+    background-color: white;
+
+    border: 2px ridge #6e6e6e;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    
+    padding: 10px;
+    display: none; /* start hidden */
+    cursor: grab; /*can be moved*/
+  }
+  
+  .popup-menu a {
+    display: block;
+    padding: 10px;
+    
+    color: black;
+    font-size: 14px;
+  }
+  
+  .popup-menu a:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .popup-button {
+    color: lime;
+    
+    border: 1px solid lime;
+    
+    margin: 5px auto;
+    display: none;
+  
+  }
+  
+  .popup-button:hover {
+    border: 1px solid red;
+    color: red;
   }
   
   
@@ -155,11 +200,57 @@
     let current = "welcome";
     
     // Define HTML Components
-    const inputBox = document.querySelector(".input-box");
-    const submitButton = document.querySelector("button");
     const consoleSection = document.querySelector("#console");
     const inputSection = document.querySelector("#input-section");
-
+    
+    const inputBox = document.querySelector(".input-box");
+    const submitButton = document.querySelector("#submit-button");
+    
+    // M2 Variables and Components
+    const m2Button = document.querySelector("#m2-button");
+    const m2Menu = document.querySelector("#m2-popup");
+    
+    let m2IsDragging = false;
+    let m2OffsetX = 0;
+    let m2OffsetY = 0;
+    
+    m2Menu.style.position = "absolute";
+    
+    //M2 Pop up and Move Functionality
+    m2Button.addEventListener("click", () => {
+      m2Menu.style.display = m2Menu.style.display === "none" || !m2Menu.style.display ? "block" : "none";
+    });
+    
+    m2Menu.addEventListener("mousedown", (event) => {
+      m2IsDragging = true;
+      m2OffsetX = event.clientX - m2Menu.getBoundingClientRect().left;
+      m2OffsetY = event.clientY - m2Menu.getBoundingClientRect().top;
+      m2Menu.style.cursor = "grabbing"; //indicate dragging with cursor change
+    });
+    
+    document.addEventListener("mousemove", (event) => {
+      if (m2IsDragging) {
+        const x = event.clientX - m2OffsetX;
+        const y = event.clientY - m2OffsetY;
+        m2Menu.style.left = `${x}px`;
+        m2Menu.style.top = `${y}px`;
+      }
+    });
+    
+    document.addEventListener("mouseup", () => {
+      if (m2IsDragging) {
+        m2IsDragging = false;
+        m2Menu.style.cursor = "grab"; //resets cursor
+      }
+    })
+    
+    // document.addEventListener("click", (event) => {
+    //   if (!m2Menu.contains(event.target) && !m2Button.contains(event.target)) {
+    //     m2Menu.style.display = "none";
+    //   }
+    // })
+    
+    // Text Component Functions (Console and Input)
     function addTextToConsole(text) {
       const pre = document.createElement("pre");
       pre.textContent = text;
@@ -173,7 +264,9 @@
       inputSection.appendChild(p);
       inputSection.scrollTop = inputSection.scrollHeight;
     }
-
+    
+    
+    // SUBMIT BUTTON HANDLING
     submitButton.addEventListener("click", function () {
       const command = inputBox.value.trim();
 
@@ -235,7 +328,11 @@
           if (command === "M2") {
             setTimeout(() => addTextToConsole("User has selected message [M2]."), 3000);
             setTimeout(() => addTextToConsole("Retrieving message [M2]..."), 4000);
+            setTimeout(() => {
+              m2Button.style.display = m2Button.style.display === "none" || !m2Button.style.display ? "block" : "none";
+            }, 6000)
           }
+          
         } else {
           addTextToConsole("Invalid command. Please try again.");
         }
@@ -258,20 +355,28 @@
 <body>
   <div>
     
+    <section id="m2-popup" class="popup-menu">
+      <h1> M2 or Something like that....</h1>
+    </section>
+    
     <section id="console">
       <h1>CONSOLE</h1>
       <pre>Welcome to the Internet Admin Terminal (IAT). Please enter your password to proceed.</pre>
     </section>
+    
+    <button id="m2-button" class="popup-button">OPEN MESSAGES</button>
     
     <section id="input-section" style="margin-top: 10px;">
       <h1>INPUT</h1>
       <p>Enter "P@ssword!23"</p> 
       <div class="input-container">
         <input class="input-box" type="text" placeholder="Enter command...">
-        <button>SUBMIT</button>
+        <button id="submit-button">SUBMIT</button>
       </div>
 
     </section>
+    
+    
     
   </div>
 </body>
