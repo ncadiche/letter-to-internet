@@ -27,6 +27,7 @@
   }
   
   #console pre{
+/*      */
     
   }
   
@@ -55,7 +56,11 @@
     border: 1px solid #6e6e6e; 
     
     position: relative;
-    top: 64%;
+    top: 64%; 
+  }
+  
+  #input-box {
+/*      */
     
   }
   
@@ -131,6 +136,44 @@
 
 <!-- JAVASCRIPT INTERACTABILITY -->
 <script>
+  const consoleD = document.getElementById('console');
+  const inputBox = document.getElementById('input-box');
+  const inputButton = document.getElementById('input-button');
+  
+  function appendToConsole(text) {
+    const pre = document.createElement('pre');
+    pre.textContent = text;
+    consoleD.appendChild(pre);
+    consoleD.scrollTop = consoleD.scrollHeight // Auto scroll to bottom of screen
+  }
+  
+  inputButton.addEventListener('click', () => {
+    const command = inputBox.value.trim();
+    if (command) {
+      appendToConsole(`> ${command}`);
+      handleCommand(command);
+      inputBox.value = ""; //Clear input
+    }
+  });
+  
+  inputBox.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+      inputButton.click();
+    }
+  });
+  
+  function handleCommand(command) {
+    switch (command.toLowerCase()) {
+      case 'y':
+        appendToConsole('Server boot initiated...');
+        setTimeout(() => appendToConsole('Loading modules...'), 1000);
+        setTimeout(() => appendToConsole('Almost done...'), 3000);
+        setTimeout(() => appendToConsole('Content loaded. Please see prompt below to proceed'), 5000);
+        break;
+      default:
+        appendToConsole('unknown command');
+    }
+  }
   
 </script>
 
@@ -160,9 +203,9 @@
         Enter "P@ssword!23"
       </p> 
       
-      <input class="input-box" type="text" placeholder="Enter command...">
+      <input id="input-box" class="input-box" type="text" placeholder="Enter command...">
       
-      <button>
+      <button id="input-button">
         SUBMIT
       </button>
     </section>
