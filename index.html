@@ -333,21 +333,20 @@
         // VIEW MESSAGE SELECTION HANDLING
         } else if (current === "view messages") {
           setTimeout(() => addTextToConsole("Reviewing selection..."), 1000);
+          
           if (command === "M1") {
             setTimeout(() => addTextToConsole("User has selected message [M1]."), 3000);
             setTimeout(() => addTextToConsole("Retrieving message [M1]..."), 4000);
             setTimeout(() => addTextToConsole("[ERROR] Message removed for: <==PHISHING THREAT==>"), 6000);
             setTimeout(() => addTextToConsole("Please select another message. [HINT] Try M2."), 6000);
-          }
-          else if (command === "M2") {
+          } else if (command === "M2") {
             setTimeout(() => addTextToConsole("User has selected message [M2]."), 3000);
             setTimeout(() => addTextToConsole("Retrieving message [M2]..."), 4000);
             setTimeout(() => {
               m2Button.style.display = m2Button.style.display === "none" || !m2Button.style.display ? "block" : "none";
             }, 6000)
-          }
-          else if (command === "M3") {
-            setTimeout(() => addTextToConsole("User has selected message [M3]."), 3000);
+          } else if (command === "M3") {
+            setTimeout(() => addTextToConsole("User has selected message [M1]."), 3000);
             setTimeout(() => addTextToConsole("Retrieving message [M3]..."), 4000);
             setTimeout(() => addTextToConsole("[ERROR] Message removed for: <==SPAM DETECTION==>"), 6000);
             setTimeout(() => addTextToConsole("Please select another message. [HINT] Try M2."), 6000);
